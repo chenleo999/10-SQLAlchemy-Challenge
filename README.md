@@ -52,8 +52,8 @@ Part 2: Design Your Climate App
   get date and temp from the most-active station in last 12 months
   return JSON list
 
-  /api/v1.0/<start> and /api/v1.0/<start>
-  /api/v1.0/<start> and /api/v1.0/<start>/<end>
+  /api/v1.0/<start> 
+  /api/v1.0/<start>/<end>
   get min, avg, max temp from a given date range
   return JSON list
 
