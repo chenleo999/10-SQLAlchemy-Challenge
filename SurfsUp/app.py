@@ -108,17 +108,17 @@ def startfrom(startdate):
     
  # 6 min/avg/max temperature between given start and end date, inclusive
 @app.route("/api/v1.0/<start>/<end>")
-def startfrom(startdate, enddate):
+def start2end(startdate, enddate):
     sel = [Measurement.date, func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)]    
     measurement = session.query(*sel).filter(Measurement >= startdate).filter(Measurement <= enddate).\
     group_by(Measurement.date).order_by(Measurement.date).all()
     
-    temp = []
+    templist = []
     for data in measurement:
-        temp.append(data)
+        templist.append(data)
     
-    if len(temp) > 0:
-        return jsonify(temp)
+    if len(templist) > 0:
+        return jsonify(templist)
     else:
         return jsonify({"error": f"no data in given date range {startdate} - {enddate}"}), 404
  
